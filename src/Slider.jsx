@@ -1,6 +1,5 @@
 
 
-
 import React from 'react';
 
 const Slider = () => {
@@ -8,4 +7,3 @@ const Slider = () => {
 };
 
 export default Slider;
-
