@@ -1,22 +1,19 @@
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
 import * as React from 'react'
-import './list.css'
-import ListSubheader from '@mui/material/ListSubheader';
-import List from '@mui/material/List';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import Collapse from '@mui/material/Collapse';
+import './menu.css'
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
-import StarBorder from '@mui/icons-material/StarBorder';
+import {
+  ListSubheader,
+  List,
+  ListItemButton,
+  ListItemText,
+  Collapse,
+} from '@mui/material'
 
 
 
-const List = props => {
+
+const Menu = props => {
     const [productOpen, setProductOpen] = React.useState(false);
     const [statueOpen, setStatueOpen] = React.useState(false);
     const [cityOpen, setCityOpen] = React.useState(false);
@@ -37,7 +34,7 @@ const List = props => {
   return <div>
        <List
       className='list'  
-      sx={{ width: '100%', maxWidth: 200, bgcolor: 'background.paper' }}
+      sx={{ width: '100%', bgcolor: 'background.paper' }}
       component="nav"
       aria-labelledby="nested-list-subheader"
       subheader={
@@ -87,5 +84,5 @@ const List = props => {
   </div>;
 };
 
-export default List;
+export default Menu;
 
