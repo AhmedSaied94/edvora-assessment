@@ -35,3 +35,13 @@
     font-size: 2rem !important;
     cursor: pointer;
 }
+
+@media (max-width:560px){
+    .next{
+        right: -12%;
+    }
+
+    .prev{
+        left: -12%;
+    }
+}

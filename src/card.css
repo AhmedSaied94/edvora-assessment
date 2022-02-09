@@ -1,11 +1,19 @@
 .card{
-    max-width: 210px;
+    width: 210px;
     box-sizing: border-box;
-    /* margin: 0 1rem 0 0; */
+    max-height: 160px;
+    margin: 0.5rem 0;
     background-color: #292929;
     border-radius: 5px;
     padding: 0.5rem;
     transition: all 0.3s linear;
+}
+
+@media (max-width:560px){
+    .card{
+        width: 100%;
+    }
+
 }
 
 .card:hover{

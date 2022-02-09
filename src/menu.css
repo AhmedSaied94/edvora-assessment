@@ -18,6 +18,11 @@
     margin: 0 auto !important;
 }
 
+@media (max-width:560px){
+    .list{
+        max-width: none !important;
+    }
+}
 .list-sub{
     background-color: #131313 !important;
     color: #A5A5A5 !important;
