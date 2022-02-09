@@ -3,7 +3,6 @@ import Slider from './Slider'
 import * as React from 'react'
 import {
   Container,
-  Box,
   CssBaseline,
   Grid,
   Typography,
@@ -36,7 +35,7 @@ const App = props => {
       <Container maxWidth="xl">
         <Grid container spacing={2} mt={3}>
           <Grid item xs={3}>
-            <Menu />
+            <Menu pnames={pnames} items={items} />
           </Grid>
           <Grid item xs={9}>
           <Typography sx={{color:'#fff'}} variant="h4" component="div" gutterBottom>

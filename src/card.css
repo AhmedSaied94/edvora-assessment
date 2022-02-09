@@ -5,6 +5,12 @@
     background-color: #292929;
     border-radius: 5px;
     padding: 0.5rem;
+    transition: all 0.3s linear;
+}
+
+.card:hover{
+    transform: scale(1.1);
+    opacity: 0.8;
 }
 
 .card-header{

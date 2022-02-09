@@ -17,6 +17,8 @@ const Menu = props => {
     const [productOpen, setProductOpen] = React.useState(false);
     const [statueOpen, setStatueOpen] = React.useState(false);
     const [cityOpen, setCityOpen] = React.useState(false);
+    const [states, setStates] = React.useState([]);
+    const [cities, setCities] = React.useState([]);
 
     const handleClick = (listName) => {
         switch(listName){
@@ -31,6 +33,27 @@ const Menu = props => {
                 break;
         }
     }
+
+    const pnameHandleClick = (pname) => {
+      let filterdItems = props.items.filter(item => item.product_name === pname)
+      let statesSet = new Set()
+      for(let item of filterdItems){
+        statesSet.add(item.address.state)
+      }
+      setStates([...statesSet])
+      if(!statueOpen) setStatueOpen(!statueOpen)
+    }
+
+    const stateHandleClick = (state) => {
+      let filterdItems = props.items.filter(item => item.address.state === state)
+      let citiesSet = new Set()
+      for(let item of filterdItems){
+        citiesSet.add(item.address.city)
+      }
+      setCities([...citiesSet])
+      if(!cityOpen) setCityOpen(!cityOpen)
+    }
+
   return <div>
        <List
       className='list'  
@@ -53,9 +76,12 @@ const Menu = props => {
       </ListItemButton>
       <Collapse in={productOpen} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <ListItemButton className='list-child' sx={{ pl: 4 }}>
-            <ListItemText primary="Starred" />
+          {props.pnames.map(pname => {
+            return <ListItemButton onClick={()=> pnameHandleClick(pname)} className='list-child' sx={{ pl: 4 }}>
+            <ListItemText primary={pname} />
           </ListItemButton>
+          })}
+
         </List>
       </Collapse>
       <ListItemButton className='list-btn' onClick={() => handleClick('statue')}>
@@ -64,9 +90,12 @@ const Menu = props => {
       </ListItemButton>
       <Collapse in={statueOpen} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <ListItemButton className='list-child' sx={{ pl: 4 }}>
-            <ListItemText primary="Starred" />
-          </ListItemButton>
+          {states.map(state => {
+            return <ListItemButton onClick={()=> stateHandleClick(state)} className='list-child' sx={{ pl: 4 }}>
+              <ListItemText primary={state} />
+            </ListItemButton>
+          })}
+
         </List>
       </Collapse>
       <ListItemButton className='list-btn' onClick={() => handleClick('city')}>
@@ -75,9 +104,11 @@ const Menu = props => {
       </ListItemButton>
       <Collapse in={cityOpen} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <ListItemButton className='list-child' sx={{ pl: 4 }}>
-            <ListItemText primary="Starred" />
-          </ListItemButton>
+        {cities.map(city => {
+            return <ListItemButton className='list-child' sx={{ pl: 4 }}>
+              <ListItemText primary={city} />
+            </ListItemButton>
+          })}
         </List>
       </Collapse>
     </List>

@@ -8,7 +8,7 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 const Slider = props => {
 
   const [currentPage, setCurrentPage] = React.useState(1);
-  const [itemsPerPage, setItemsPerPage] = React.useState(4);
+  const itemsPerPage = 4;
 
   const lastIndex = currentPage * itemsPerPage 
   const firstIndex = lastIndex - itemsPerPage
