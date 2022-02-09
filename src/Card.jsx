@@ -5,7 +5,7 @@ import { Typography } from '@mui/material';
 const Card = props => {
   return <div className='card'>
     <div className='card-header'>
-      <div>
+      <div style={{marginRight:'0.5rem'}}>
         <div className='image-con'>
           <img src={props.item.image} alt="" />
         </div>

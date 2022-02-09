@@ -2,50 +2,48 @@ import * as React from 'react';
 import { Typography } from '@mui/material';
 import Card from './Card'
 import './slider.css'
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 const Slider = props => {
 
-  const [items, setItems] = React.useState([]);
-  let pNames = new Set()
-  let pnames = []
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const [itemsPerPage, setItemsPerPage] = React.useState(4);
 
-  React.useMemo(() => {
-    fetch('https://assessment-edvora.herokuapp.com')
-    .then(res => res.json())
-    .then(data =>setItems(data))
+  const lastIndex = currentPage * itemsPerPage 
+  const firstIndex = lastIndex - itemsPerPage
+  const totalPages = Math.ceil(props.items.length / itemsPerPage)
 
-  },[])
-
-  for(let item of items){
-    pNames.add(item.product_name)
+  const next = () => {
+   if(currentPage < totalPages) setCurrentPage(currentPage + 1)
   }
-  pnames = [...pNames]
+  const prev = () => {
+    if(currentPage > 1) setCurrentPage(currentPage - 1)
+  }
 
-  const check = () => console.log(items, pNames, pnames)
-
- 
+  const currentItems = props.items.slice(firstIndex, lastIndex)
 
   return <div className='slider'>
-    <button onClick={check}> check</button>
-    {pnames.map((pName)=>{
-      console.log(pName)
-      return <div key={pName}>
-        <Typography variant='h5' gutterBottom component="div">
-          {pName}
+        <Typography sx={{color:'#fff'}} variant='h5' gutterBottom component="div">
+          {props.pname}
         </Typography>
-        <hr/>
-        <div className='pag'>
-          {items.filter((item) => item.product_name === pName)
-          .map((item, index) => {
-            if(index<4) return <Card item={item} key={index} />
-          })
-            
-              
-            
+        <hr style={{color:'#CBCBCB', opacity:0.5}}/>
+        <div className='pag-per'>
+          {
+            currentPage > 1 &&
+            <ArrowBackIosIcon className='prev' onClick={prev} />
+          }
+          <div className='pag'>
+            {currentItems.map((item, index) => {
+              return <Card item={item} key={index} />
+            })  
+            }
+          </div>
+          {
+            currentPage < totalPages &&
+            <ArrowForwardIosIcon className='next' onClick={next} />
           }
         </div>
-      </div>
-    })}
   </div>;
 };
 

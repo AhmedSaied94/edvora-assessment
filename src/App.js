@@ -10,22 +10,44 @@ import {
 } from '@mui/material'
 
 const App = props => {
+
+  const [items, setItems] = React.useState([]);
+  let pNames = new Set()
+  let pnames = []
+
+
+
+  React.useMemo(() => {
+    fetch('https://assessment-edvora.herokuapp.com')
+    .then(res => res.json())
+    .then(data =>setItems(data))
+
+  },[])
+
+  for(let item of items){
+    pNames.add(item.product_name)
+  }
+  pnames = [...pNames]
+
+
   return (
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="xl">
         <Grid container spacing={2} mt={3}>
-          <Grid item xs={2}>
+          <Grid item xs={3}>
             <Menu />
           </Grid>
-          <Grid item xs={10}>
-          <Typography variant="h4" component="div" gutterBottom>
+          <Grid item xs={9}>
+          <Typography sx={{color:'#fff'}} variant="h4" component="div" gutterBottom>
             Edvora
           </Typography>
-          <Typography variant="h6" component="div" gutterBottom>
+          <Typography sx={{color:'#fff', opacity:0.6}} variant="h6" component="div" gutterBottom>
             Products
           </Typography>
-          <Slider />
+          {pnames.map(pname => {
+            return <Slider pname={pname} items={items.filter(item => item.product_name === pname ).slice()} />
+          })}
           </Grid>
           
         </Grid>

@@ -14,7 +14,8 @@
     background-color: #131313 !important;
     border-radius: 15px !important;
     padding: 0.65rem 2rem 2rem !important;
-    
+    max-width: 260px !important;
+    margin: 0 auto !important;
 }
 
 .list-sub{
