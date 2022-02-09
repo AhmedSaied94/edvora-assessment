@@ -1,8 +1,8 @@
 .card{
-    width: 260px;
+    max-width: 240px;
     box-sizing: border-box;
+    margin: 0 1rem 1rem 0;
     background-color: #292929;
-    margin: 3rem;
     border: 3px solid #fff;
     border-radius: 5px;
     padding: 0.5rem;

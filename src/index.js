@@ -8,7 +8,7 @@ import Slider from './Slider'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Slider />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

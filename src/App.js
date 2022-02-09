@@ -13,18 +13,19 @@ const App = props => {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <Grid container spacing={2} mt={3}>
-          <Grid item xs={3}>
+          <Grid item xs={2}>
             <Menu />
           </Grid>
-          <Grid item xs={9}>
+          <Grid item xs={10}>
           <Typography variant="h4" component="div" gutterBottom>
             Edvora
           </Typography>
           <Typography variant="h6" component="div" gutterBottom>
             Products
           </Typography>
+          <Slider />
           </Grid>
           
         </Grid>
