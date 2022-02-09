@@ -2,36 +2,36 @@ import * as React from 'react'
 import './card.css'
 import { Typography } from '@mui/material';
 
-const Card = () => {
+const Card = props => {
   return <div className='card'>
     <div className='card-header'>
       <div>
         <div className='image-con'>
-          <img src="" alt="" />
+          <img src={props.item.image} alt="" />
         </div>
         <Typography sx={{color:'#fff', opacity:0.6}} variant="body2" gutterBottom component="div">
-          Location
+          {props.item.address.state}, {props.item.address.city}
         </Typography>
       </div>
       <div className='card-info'>
         <Typography sx={{color:'#fff'}} variant="subtitle2" gutterBottom component="div">
-          Product Name
+          {props.item.product_name}
         </Typography>
         <Typography sx={{color:'#fff', opacity:0.6}} variant="body2" gutterBottom component="div">
-          Brand Name
+          {props.item.brand_name}
         </Typography>
         <Typography sx={{color:'#fff'}} variant="subtitle2" gutterBottom component="div">
-          $28.50
+          ${props.item.price}
         </Typography>
         <Typography sx={{color:'#fff', opacity:0.6}} variant="body2" gutterBottom component="div">
-          Date 8/2/2022
+          {props.item.date}
         </Typography>
       </div>
     </div>
     <div className='card-body'>
 
         <Typography sx={{color:'#fff', opacity:0.6}} variant="body2" gutterBottom component="div">
-          Description is very good
+          {props.item.discription}
         </Typography>
       </div>
   </div>;

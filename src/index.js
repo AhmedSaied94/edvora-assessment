@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import Card from './Card'
-
+import Slider from './Slider'
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <Card />
+    <Slider />
   </React.StrictMode>,
   document.getElementById('root')
 );

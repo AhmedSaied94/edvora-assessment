@@ -1,7 +1,6 @@
 .card{
-    width: 210px;
+    width: 260px;
     box-sizing: border-box;
-    max-height: 150px;
     background-color: #292929;
     margin: 3rem;
     border: 3px solid #fff;
@@ -12,7 +11,7 @@
 .card-header{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .image-con{
@@ -28,9 +27,6 @@
     
 }
 
-.card-info{
-
-}
 
 .card-body{
     
